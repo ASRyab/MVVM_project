@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="asryab.com.mvvmproject.viewmodels.small_lists.SmallPetitionsHolderVM" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/app_container_padding_half"
+        android:paddingTop="@dimen/app_container_padding_half"
+        tools:background="@color/base_white"
+        tools:orientation="horizontal"
+        tools:paddingLeft="@dimen/app_container_padding_half"
+        tools:paddingRight="@dimen/app_container_padding_half">
+
+        <TextView
+            android:id="@+id/tvDateTime_HPP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@{viewModel.locationTimePosted}"
+            android:textColor="@color/text_grey_sketch2"
+            android:textSize="@dimen/app_text_size_default"
+            tools:text="City * April 1" />
+
+        <TextView
+            android:id="@+id/tvTitle_HPP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvDateTime_HPP"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:paddingBottom="7dp"
+            android:paddingTop="7dp"
+            android:text="@{viewModel.title}"
+            android:textColor="@color/app_color_black_transparently"
+            tools:text="Everything you need to know about Mossack Fonseca and why it is important\nin day and age." />
+
+        <TextView
+            android:id="@+id/tvSigned_HPP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tvTitle_HPP"
+            android:drawableLeft="@drawable/ic_check_green"
+            android:drawablePadding="6dp"
+            android:gravity="center_vertical"
+            android:text="@string/signed"
+            android:textAllCaps="true"
+            android:textColor="@color/app_color_black_transparently"
+            android:textSize="@dimen/app_text_size_small"
+            android:textStyle="bold"
+            android:visibility="@{viewModel.isSelfSigned ? View.VISIBLE : View.GONE}" />
+
+        <TextView
+            android:id="@+id/tvTopAnswer_HPP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvTitle_HPP"
+            android:singleLine="true"
+            android:text="@{viewModel.supporters}"
+            android:textColor="@color/text_grey_sketch"
+            android:textSize="@dimen/app_text_size_default"
+            tools:text="24,500 supporters" />
+
+
+    </RelativeLayout>
+
+</layout>

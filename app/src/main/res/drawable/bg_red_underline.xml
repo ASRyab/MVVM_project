@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:left="@dimen/app_home_tabs_line_selected_height_inverse"
+        android:right="@dimen/app_home_tabs_line_selected_height_inverse"
+        android:top="@dimen/app_home_tabs_line_selected_height_inverse">
+        <shape>
+            <solid android:color="@android:color/transparent" />
+            <stroke
+                android:width="@dimen/app_home_tabs_line_selected_height"
+                android:color="@color/app_color_red_line_home_tabs" />
+        </shape>
+    </item>
+</layer-list>

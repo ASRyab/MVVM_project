@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <import type="java.lang.String" />
+
+        <variable
+            name="viewModel"
+            type="asryab.com.mvvmproject.viewmodels.dialogs.VotingProgressVM" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/app_container_padding"
+        android:background="@drawable/bg_dialogs"
+        android:orientation="vertical"
+        android:padding="@dimen/app_container_padding_half">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_arrow" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/app_container_padding_half">
+
+            <asryab.com.mvvmproject.dialogs.IndeterminateProgressView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:colorProgress="@color/app_color_grey"
+                app:widthStepFill="26dp"
+                app:widthStepOffset="5dp" />
+
+            <TextView
+                style="@style/AppTheme.Button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="0dp"
+                android:text="@string/compiling_voting_results"
+                android:textColor="@color/base_dark_grey"
+                android:textSize="16sp" />
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+</layout>

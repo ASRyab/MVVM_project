@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="asryab.com.mvvmproject.viewmodels.language.LanguageActivityVM"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_background_default_color"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/rlImageContainer_LA"
+            android:layout_width="match_parent"
+            android:layout_height="220dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_arrow" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivLogo_LA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_arrow" />
+
+                <TextView
+                    style="@style/AppTheme.TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:singleLine="true"
+                    android:gravity="center"
+                    android:text="@string/what_matters_locally"
+                    android:textSize="19sp" />
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tvSelectLanguage_LA"
+            style="@style/AppTheme.TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.5"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="@string/select_your_language"
+            android:textAllCaps="true"
+            android:textSize="@dimen/app_text_size_small" />
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:overScrollMode="never"
+            app:recyclerAdapter="@{viewModel.mAdapter}"
+            app:recyclerManager="@{viewModel.mManager}" />
+
+        <TextView
+            android:id="@+id/btnGetStarted_LA"
+            style="@style/AppTheme.Button.Red"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/app_container_padding"
+            android:onClick="@{viewModel.getStarted}"
+            android:text="@string/get_started" />
+
+    </LinearLayout>
+</layout>

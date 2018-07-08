@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="asryab.com.mvvmproject.viewmodels.profile.ProfileVM"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:background="#eaeaea">
+
+            <LinearLayout
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <TextView
+                    android:textAllCaps="true"
+                    android:textSize="8sp"
+                    android:text="@string/rank"
+                    android:textColor="@color/base_grey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+                <TextView
+                    tools:text="Chief Minister"
+                    android:textSize="@dimen/app_text_size_pre_middle"
+                    android:textColor="@color/base_black"
+                    android:text="@{viewModel.rank}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    tools:text="Bangalore, India"
+                    android:textSize="@dimen/app_text_size_normal"
+                    android:text="@{viewModel.address}"
+                    android:textColor="@color/base_grey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+    </RelativeLayout>
+</layout>

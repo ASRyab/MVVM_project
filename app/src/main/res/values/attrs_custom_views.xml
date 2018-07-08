@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="IndeterminateProgressView">
+        <attr name="colorProgress" format="color" />
+        <attr name="widthStepFill" format="dimension" />
+        <attr name="widthStepOffset" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomProgressVotedAnswer">
+        <attr name="colorProgressPercents" format="color" />
+        <attr name="valueProgressPercents" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="GraphicForAnswerView">
+        <attr name="colorTextPercentage" format="color" />
+        <attr name="colorTextCaptions" format="color" />
+        <attr name="dividersColor" format="color" />
+        <attr name="fillMaxColor" format="color" />
+        <attr name="sizeTextPercentage" format="dimension" />
+        <attr name="sizeTextCaptions" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="ProgressView">
+        <attr name="progressBgColor" format="color" />
+        <attr name="progressBgCircleType" format="enum">
+            <enum name="fill" value="0" />
+            <enum name="stroke" value="1" />
+        </attr>
+        <attr name="progressBgCircleStrokeWidth" format="dimension" />
+        <attr name="progressCircleColor" format="color" />
+        <attr name="progressAnimateWhenAttach" format="boolean" />
+    </declare-styleable>
+
+</resources>

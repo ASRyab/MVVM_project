@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="java.lang.String" />
+
+        <variable
+            name="viewModel"
+            type="asryab.com.mvvmproject.viewmodels.dialogs.ShareThoughtsDialogVM" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/app_container_padding"
+        android:background="@drawable/bg_dialogs"
+        android:orientation="vertical">
+
+
+        <TextView
+            style="@style/AppTheme.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/app_container_padding_half"
+            android:layout_marginRight="@dimen/app_container_padding_half"
+            android:layout_marginTop="12dp"
+            android:padding="@dimen/app_container_padding_quart"
+            android:singleLine="true"
+            android:text="@string/share_your_thoughts"
+            android:textColor="@color/app_background_default_color"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            style="@style/AppTheme.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/app_container_padding_half"
+            android:layout_marginLeft="@dimen/app_container_padding_half"
+            android:layout_marginRight="@dimen/app_container_padding_half"
+            android:gravity="center_horizontal"
+            android:text="@{String.format(@string/why_did_you_vote_for_answer_x, viewModel.pollAnswer.text)}"
+            android:textColor="@color/base_dark_grey"
+            android:textSize="@dimen/app_text_size_default"
+            tools:text="Why did you vote for \n'Omar Hayam Prosto tak'?" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_marginBottom="@dimen/app_container_padding_quart"
+            android:layout_marginTop="@dimen/app_container_padding_quart"
+            android:background="@android:color/white"
+            android:orientation="vertical"
+            android:padding="@dimen/app_container_padding_half">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="left|top"
+                android:hint="@string/type_your_thoughts_here"
+                android:inputType="textShortMessage|textMultiLine"
+                android:maxLength="250"
+                android:padding="@dimen/app_container_padding_quart"
+                android:textColor="@color/app_background_default_color"
+                android:textColorHint="@color/app_color_grey_selected"
+                android:textSize="@dimen/app_text_size_default"
+                app:countSymbolsListener="@{viewModel.countSymbolsListener}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="@{viewModel.countSymbolsInput}"
+                android:textColor="@color/base_dark_grey"
+                android:textSize="@dimen/app_text_size_default"
+                tools:text="0/250" />
+
+        </LinearLayout>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/app_container_padding_half"
+            android:layout_marginRight="@dimen/app_container_padding_half"
+            android:button="@null"
+            android:checked="@{viewModel.forPublicReview}"
+            android:drawableLeft="@drawable/selector_checkbox"
+            android:drawablePadding="@dimen/app_container_padding_half"
+            android:paddingBottom="@dimen/app_container_padding_half"
+            android:paddingLeft="@dimen/app_container_padding_quart"
+            android:paddingRight="@dimen/app_container_padding_half"
+            android:paddingTop="@dimen/app_container_padding_half"
+            android:singleLine="true"
+            android:text="@string/i_agree_to_post_my_thoughts_for_public_view"
+            android:textColor="@color/base_dark_grey"
+            android:textSize="@dimen/app_text_size_default" />
+
+        <TextView
+            style="@style/AppTheme.Button.Red"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/app_container_padding_half"
+            android:onClick="@{viewModel.post}"
+            android:text="@string/post" />
+
+        <TextView
+            style="@style/AppTheme.Button.Grey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/app_container_padding_half"
+            android:layout_marginLeft="@dimen/app_container_padding_half"
+            android:layout_marginRight="@dimen/app_container_padding_half"
+            android:onClick="@{viewModel.skip}"
+            android:text="@string/skip" />
+
+    </LinearLayout>
+</layout>

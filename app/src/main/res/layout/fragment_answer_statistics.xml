@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="asryab.com.mvvmproject.viewmodels.feed.graphics.AnswerStatisticsFragmentVM" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/base_light_grey"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/row_toolbar"
+            app:viewModel="@{viewModel}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/base_white"
+            android:gravity="center_horizontal"
+            android:padding="11dp"
+            android:text="@{viewModel.pollAnswer.text}"
+            android:textColor="@color/app_background_default_color"
+            android:textSize="@dimen/app_text_size_normal"
+            tools:text="Hindu" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/app_color_grey" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/base_white">
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tlTabs_FAS"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                app:onTabSelect="@{viewModel.tabSelectListener}"
+                app:tabIndicatorColor="@color/base_red"
+                app:tabIndicatorHeight="3dp"
+                app:tabPaddingEnd="15dp"
+                app:tabPaddingStart="15dp"
+                app:tabSelectedTextColor="@color/app_background_default_color"
+                app:tabTextAppearance="@style/TabAnswerStatisticStyle"
+                app:tabTextColor="@color/text_grey_sketch2">
+
+                <android.support.design.widget.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/age" />
+
+                <android.support.design.widget.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gender_without_star" />
+
+            </android.support.design.widget.TabLayout>
+
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/app_color_grey" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <FrameLayout
+                android:id="@+id/flContainerGraphics_FAS"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <asryab.com.mvvmproject.screens.ProgressView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:visibility="@{viewModel.isLoadingNow ? View.VISIBLE : View.GONE}"
+                app:progressBgColor="@color/app_color_text_black_transparently"
+                app:progressBgCircleType="stroke"
+                app:progressBgCircleStrokeWidth="2dp"
+                app:progressCircleColor="@color/base_red"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_margin="@dimen/app_container_padding_half">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_arrow" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="AD GOES HERE"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/app_text_size_middle"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+</layout>

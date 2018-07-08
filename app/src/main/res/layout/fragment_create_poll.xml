@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/tools"
+        xmlns:tools="http://schemas.android.com/tools">
+
+
+
+
+    <data>
+        <!--<import type="asryab.com.mvvmproject.viewmodels.authorization.signup.SignUpVM.FieldType"/>-->
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewModel"
+            type="asryab.com.mvvmproject.viewmodels.createpool.CreatePollVM"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/topicToolbar"
+            layout="@layout/row_topic_toolbar"
+            bind:viewModel="@{viewModel}"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/topicToolbar"
+            android:background="@color/base_white"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:descendantFocusability="beforeDescendants"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="left|center_vertical"
+                        android:text="@string/topic"
+                        android:textSize="@dimen/app_text_size_pre_middle"
+                        android:textColor="@color/base_black"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="right|center_vertical"
+                        android:onClick="@{viewModel::earnMoneyPressed}"
+                        android:textSize="@dimen/app_text_size_normal"
+                        android:textColor="@color/base_dark_grey"
+                        android:text="@string/earn_money"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="@dimen/vertical_margin_small"
+                    android:background="@color/base_dark_grey"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/vertical_margin_normal"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:hint="@string/edit_topic_hint"
+                        android:maxLength="300"
+                        android:maxLines="8"
+                        android:minHeight="120dp"
+                        android:textSize="@dimen/app_text_size_normal"
+                        android:textColor="@color/base_dark_grey"
+                        android:textColorHint="@color/base_dark_grey"
+                        app:countSymbolsListener="@{viewModel.countSymbolsListener}"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/vertical_margin_small"
+                        android:layout_marginBottom="@dimen/vertical_margin_small"
+                        android:gravity="right"
+                        android:textColor="@color/base_dark_grey"
+                        android:text="@{viewModel.countSymbolsInput}"
+                        tools:text="0/300"/>
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/base_white"
+                        android:checkedButton="@+id/radioState"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radioCity"
+                            style="@style/AppTheme.TopicTab.Left"
+                            android:text="@string/city"/>
+
+                        <RadioButton
+                            android:id="@+id/radioState"
+                            style="@style/AppTheme.TopicTab"
+                            android:text="@string/state"/>
+
+                        <RadioButton
+                            android:id="@+id/radioNationwide"
+                            style="@style/AppTheme.TopicTab.Right"
+                            android:text="@string/nationwide"/>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="@color/base_light_grey">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:drawableLeft="@drawable/ic_photo_camera"
+                        android:drawablePadding="10dp"
+                        android:gravity="center"
+                        android:text="@string/add_media"
+                        android:textColor="@color/base_dark_grey"
+                        android:textSize="16sp"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:visibility="gone"/>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/vertical_margin_normal"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/vertical_margin_normal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/vertical_margin_normal"
+                        android:textSize="@dimen/app_text_size_pre_middle"
+                        android:text="@string/answers"
+                        android:textColor="@color/base_black"/>
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/vertical_margin_small"
+                        android:background="@color/base_white"
+                        app:onTabSelected="@{viewModel.tabAnswersListener}"
+                        app:selectTab="@{viewModel.tabAnswers}"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radioFiveAnsw"
+                            style="@style/AppTheme.TopicTab.Left"
+                            android:text="@string/five_answers"/>
+
+                        <RadioButton
+                            android:id="@+id/radioThreeAnsw"
+                            style="@style/AppTheme.TopicTab.Right"
+                            android:text="@string/three_answers"/>
+                    </RadioGroup>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="@{viewModel.isAnswersLayoutVisible ? View.VISIBLE : View.GONE}">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/AppTheme.EditText.Answers"
+                            android:hint="@string/answer_1"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:background="@color/base_light_grey"
+                            android:layout_height="1dp"/>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/answer_2"
+                            style="@style/AppTheme.EditText.Answers"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:background="@color/base_light_grey"
+                            android:layout_height="1dp"/>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/answer_3"
+                            style="@style/AppTheme.EditText.Answers"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:background="@color/base_light_grey"
+                            android:layout_height="1dp"/>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/answer_4"
+                            style="@style/AppTheme.EditText.Answers"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:background="@color/base_light_grey"
+                            android:layout_height="1dp"/>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/answer_5"
+                            style="@style/AppTheme.EditText.Answers"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:background="@color/base_light_grey"
+                            android:layout_height="1dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <ProgressBar
+            style="@style/ProgressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isProgressVisible ? View.VISIBLE : View.GONE}"/>
+
+    </RelativeLayout>
+</layout>

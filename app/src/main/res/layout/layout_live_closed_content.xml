@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewLiveClosedModel"
+            type="asryab.com.mvvmproject.viewmodels.feed.LiveClosedFeedsVM" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_background_default_color_light"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvLive_LVCC"
+                style="@style/AppTheme.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="2dp"
+                android:onClick="@{viewLiveClosedModel.setCurrentTabFromView}"
+                android:padding="11dp"
+                android:text="@string/live"
+                android:textColor="@{viewLiveClosedModel.lcPosition == 0 ? @color/app_text_color_light : @color/app_color_white_transparently}"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvClosed_LVCC"
+                style="@style/AppTheme.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:onClick="@{viewLiveClosedModel.setCurrentTabFromView}"
+                android:padding="11dp"
+                android:text="@string/closed"
+                android:textColor="@{viewLiveClosedModel.lcPosition == 1 ? @color/app_text_color_light : @color/app_color_white_transparently}"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vpFeedPages_LVCC"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:pagerAdapter="@{viewLiveClosedModel.fragmentsPagerAdapter}"
+            app:onPageSelected="@{viewLiveClosedModel.onPageSelected}"/>
+
+    </LinearLayout>
+
+</layout>

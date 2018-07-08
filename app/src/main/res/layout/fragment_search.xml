@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="searchVM"
+            type="asryab.com.mvvmproject.viewmodels.search.SearchVM" />
+
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinatorExplore"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appBarEzplore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_background_default_color_light"
+            android:orientation="vertical"
+            app:elevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_scrollFlags="scroll|enterAlwaysCollapsed|snap">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:background="@drawable/bg_input_field_search">
+
+                    <TextView
+                        style="@style/AppTheme.Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:drawableLeft="@drawable/ic_search_small"
+                        android:drawablePadding="10dp"
+                        android:padding="8dp"
+                        android:text="@string/search"
+                        android:textColor="@color/app_color_grey_selected" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp">
+
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/vpPollsNews_FES"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:overScrollMode="never" />
+
+                    <asryab.com.mvvmproject.screens.intro.custom.CirclePageIndicator
+                        android:id="@+id/cpiCircleIndicators_FS"
+                        style="@style/CirclePageIndicatorsStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="5dp"
+                        android:padding="10dp" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_margin="3dp"
+                        android:onClick="@{searchVM.clickOnMoveNext}"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_arrow"
+                        android:visibility="@{(searchVM.isLoadingPollsAds || searchVM.isShowErrorContainer) ? View.GONE : View.VISIBLE}" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical|left"
+                        android:layout_margin="3dp"
+                        android:onClick="@{searchVM.clickOnMovePrev}"
+                        android:padding="10dp"
+                        android:rotation="180"
+                        android:src="@drawable/ic_arrow"
+                        android:visibility="@{(searchVM.isLoadingPollsAds || searchVM.isShowErrorContainer) ? View.GONE : View.VISIBLE}" />
+
+                    <asryab.com.mvvmproject.screens.ProgressView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:visibility="@{searchVM.isLoadingPollsAds ? View.VISIBLE : View.GONE}"
+                        app:progressBgCircleStrokeWidth="2dp"
+                        app:progressBgCircleType="stroke"
+                        app:progressBgColor="@color/app_color_text_white_transparently"
+                        app:progressCircleColor="@color/base_red" />
+
+                    <include
+                        layout="@layout/layout_error_load_light_circular"
+                        app:errorModel="@{searchVM}" />
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:background="@color/base_ultra_light_grey"
+                    android:orientation="vertical"
+                    android:padding="2dp"
+                    android:visibility="@{searchVM.isVisibleTrendingContainer ? View.VISIBLE : View.GONE}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/app_container_padding_half"
+                        android:layout_marginTop="@dimen/app_container_padding_half"
+                        android:padding="4dp"
+                        android:text="@string/trending_now"
+                        android:textAllCaps="true"
+                        android:textColor="@color/app_background_default_color_light"
+                        android:textSize="@dimen/app_text_size_small"
+                        android:textStyle="bold" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp">
+
+                        <asryab.com.mvvmproject.screens.search.trending.TrendingSwipingContainer
+                            android:id="@+id/swipeTrendingCardContainer"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <asryab.com.mvvmproject.screens.ProgressView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:visibility="@{searchVM.isLoadingTrendingCards ? View.VISIBLE : View.GONE}"
+                            app:progressBgCircleStrokeWidth="2dp"
+                            app:progressBgCircleType="stroke"
+                            app:progressBgColor="@color/app_background_default_color_light"
+                            app:progressCircleColor="@color/base_red" />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/base_white">
+
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/tlTabs_FAS"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/bg_more_info_item"
+                    app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
+                    app:tabIndicatorColor="@color/base_red"
+                    app:tabIndicatorHeight="3dp"
+                    app:tabPaddingEnd="15dp"
+                    app:tabPaddingStart="15dp"
+                    app:tabSelectedTextColor="@color/app_background_default_color"
+                    app:tabTextAppearance="@style/TabAnswerStatisticStyle"
+                    app:tabTextColor="@color/text_grey_sketch2" />
+            </FrameLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vpExplorePager_FS"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</layout>

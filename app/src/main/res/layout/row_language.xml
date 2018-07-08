@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="asryab.com.mvvmproject.viewmodels.language.LanguageVM"/>
+        <import type="android.view.View"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/app_container_padding"
+        android:layout_marginRight="@dimen/app_container_padding"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:visibility="@{viewModel.isCheckVisible ? View.VISIBLE : View.INVISIBLE}"
+                android:src="@drawable/ic_check"/>
+
+            <TextView
+                style="@style/AppTheme.TextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="@dimen/app_container_padding"
+                android:text="@{viewModel.mLanguage}"
+                android:textColor="@{viewModel.isCheckVisible ? @color/app_text_color_light : @color/app_color_white_transparently}"
+                tools:text="English"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/app_color_white_transparently"/>
+
+    </LinearLayout>
+</layout>

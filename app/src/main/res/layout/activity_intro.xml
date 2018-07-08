@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="asryab.com.mvvmproject.viewmodels.intro.IntroActivityVM" />
+    </data>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_background_default_color">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vpIntrosAI"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="@dimen/app_container_padding">
+
+            <asryab.com.mvvmproject.screens.intro.custom.CirclePageIndicator
+                android:id="@+id/cpiCircleIndicators_AI"
+                style="@style/CirclePageIndicatorsStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"
+                android:padding="10dp" />
+
+            <TextView
+                android:id="@+id/btnSignUp_AI"
+                style="@style/AppTheme.Button.Red"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel.signUp}"
+                android:text="@string/sign_up" />
+
+            <TextView
+                android:id="@+id/btnLogIn_AI"
+                style="@style/AppTheme.Button.Transparent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:onClick="@{viewModel.logIn}"
+                android:text="@string/log_in" />
+
+        </LinearLayout>
+    </FrameLayout>
+
+
+</layout>

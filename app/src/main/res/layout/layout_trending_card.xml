@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="asryab.com.mvvmproject.viewmodels.search.TrendingHolderVM" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="@dimen/app_container_padding_half"
+        android:layout_marginRight="@dimen/app_container_padding_half"
+        android:layout_marginTop="@dimen/app_container_padding_half"
+        android:background="@drawable/bg_card_shadow"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_more_info_item"
+            android:gravity="center"
+            android:maxLines="3"
+            android:padding="@dimen/app_container_padding"
+            android:text="@{viewModel.message}"
+            android:textColor="@color/app_color_black_transparently"
+            tools:text="Everything you need to know about\nMossack Fonseca and why it is important\nin day and age." />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="@{viewModel.clickNo}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:drawableLeft="@drawable/ic_dislike"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:text="@string/naah"
+                    android:textColor="@color/app_color_black_transparently"
+                    android:textSize="@dimen/app_text_size_normal"
+                    android:textStyle="bold" />
+            </FrameLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/base_light_grey" />
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="@{viewModel.clickYes}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:drawableLeft="@drawable/ic_like"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:text="@string/like"
+                    android:textColor="@color/app_color_black_transparently"
+                    android:textSize="@dimen/app_text_size_normal"
+                    android:textStyle="bold" />
+
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

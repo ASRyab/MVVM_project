@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="asryab.com.mvvmproject.viewmodels.dialogs.ReportSheetDialogVM" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:padding="@dimen/app_container_padding_half">
+
+        <TextView
+            style="@style/AppTheme.Button.GreyBorder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/llRecyclerThoughts_HAV"
+            android:text="@string/report"
+            android:onClick="@{viewModel.report}" />
+
+        <TextView
+            style="@style/AppTheme.Button.Grey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/llRecyclerThoughts_HAV"
+            android:layout_marginTop="@dimen/app_container_padding_half"
+            android:text="@string/cancel"
+            android:onClick="@{viewModel.cancel}" />
+
+
+    </LinearLayout>
+</layout>

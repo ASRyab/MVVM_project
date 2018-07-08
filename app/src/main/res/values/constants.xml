@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="facebook_app_id">32424</string>
+    <!--   KEY   -->
+    <string name="background_key">background_key</string>
+</resources>

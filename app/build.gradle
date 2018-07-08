@@ -1,0 +1,86 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+//    dependencies {
+//        classpath 'io.fabric.tools:gradle:1.+'
+//    }
+}
+apply plugin: 'com.android.application'
+//apply plugin: 'io.fabric'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+    defaultConfig {
+        applicationId "asryab.com.mvvmproject"
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled false
+    }
+    dataBinding {
+        enabled = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+    productFlavors {
+        legacy {
+            minSdkVersion 16
+        }
+        modern {
+            minSdkVersion 21
+        }
+    }
+    flavorDimensions "default"
+    dexOptions {
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.fabric.io/public' }
+    maven { url "http://dl.bintray.com/pixplicity/android" }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:27.0.2'
+    testCompile 'junit:junit:4.12'
+    compile 'com.google.android.gms:play-services-auth:8.4.0'
+
+    compile 'com.android.support:design:27.0.2'
+
+    compile 'com.squareup.retrofit2:retrofit:2.0.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
+    compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
+    compile 'io.reactivex:rxandroid:1.2.0'
+    compile 'io.reactivex:rxjava:1.1.5'
+    compile 'com.facebook.android:facebook-android-sdk:4.+'
+
+    compile 'com.hannesdorfmann:adapterdelegates2:2.0.0'
+
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.pixplicity.sharp:library:1.0.2@aar'
+
+    compile 'com.facebook.stetho:stetho:1.3.1'
+    compile 'com.facebook.stetho:stetho-okhttp3:1.3.1'
+
+    compile 'org.jetbrains:annotations:15.0'
+}

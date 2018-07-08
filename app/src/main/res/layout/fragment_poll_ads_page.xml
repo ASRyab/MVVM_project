@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="asryab.com.mvvmproject.viewmodels.search.PollPageFragmentVM" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:onClick="@{viewModel.clickOnPoll}">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:glideImage="@{viewModel.pollModel.url}" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignTop="@+id/llContainerTitles_FPAD"
+            android:background="@drawable/bg_black_gradient" />
+
+
+        <TextView
+            android:id="@+id/tvLabelPoll_LHPH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_rect_round_with_sharp_corners"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:singleLine="true"
+            android:text="@{viewModel.pollOfThe}"
+            android:textColor="@color/app_background_default_color"
+            android:textSize="@dimen/app_text_size_small"
+            android:textStyle="bold"
+            tools:text="Poll of the Day" />
+
+        <LinearLayout
+            android:id="@+id/llContainerTitles_FPAD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+
+            <TextView
+                style="@style/AppTheme.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="@{viewModel.alphaTitles}"
+                android:singleLine="true"
+                android:text="@{viewModel.location}"
+                android:textSize="@dimen/app_text_size_default"
+                android:translationX="@{viewModel.offsetXSubTitles}"
+                tools:text="Country  \u2022  April 1" />
+
+            <TextView
+                style="@style/AppTheme.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="@{viewModel.alphaTitles}"
+                android:gravity="center_horizontal"
+                android:maxLines="2"
+                android:padding="0dp"
+                android:text="@{viewModel.pollModel.title}"
+                android:textSize="@dimen/app_text_size_pre_middle"
+                android:textStyle="bold"
+                android:translationX="@{viewModel.offsetXTitle}"
+                tools:text="Whose life is most precious \n to Indian politicians?" />
+
+            <TextView
+                style="@style/AppTheme.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="@{viewModel.alphaTitles}"
+                android:singleLine="true"
+                android:text="@{viewModel.timeToEnd}"
+                android:textAllCaps="true"
+                android:textSize="@dimen/app_text_size_small"
+                android:translationX="@{viewModel.offsetXSubTitles}"
+                tools:text="23 hrs 20 min left" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

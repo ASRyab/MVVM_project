@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="app_background_default_color">#141414</color>
+    <color name="app_background_default_color_light">#181818</color>
+
+
+
+    <color name="app_color_red_text">#b74745</color>
+    <color name="app_color_red_selected">#a72b2b</color>
+    <color name="app_color_red_line_home_tabs">#E62828</color>
+
+    <color name="app_color_white_transparently">#99ffffff</color>
+    <color name="app_color_white_transparently_selected">#48ffffff</color>
+
+    <color name="app_color_black_transparently">#d7000000</color>
+    <color name="app_color_text_black_transparently">#91000000</color>
+    <color name="app_color_text_white_transparently">#cdffffff</color>
+
+    <color name="app_text_color_light">@android:color/white</color>
+    <color name="app_color_grey">#DCDCDC</color>
+    <color name="app_color_grey_selected">#bfbfbf</color>
+    <color name="app_color_dialog_bg_grey">#F0F0F0</color>
+
+
+    <color name="error_field_red">#EDC3C3</color>
+    <color name="normal_field_grey">#0a6f6f6f</color>
+
+    <color name="answer_full_color">#427BB2</color>
+
+
+    <color name="text_grey_sketch">#8F8F8F</color>
+    <color name="text_grey_sketch2">#C1C1C1</color>
+    <color name="text_black_sketch">#2F2F2F</color>
+    <color name="divider_grey_sketch">#E4E4E4</color>
+
+
+    <!--   APP COLORS FROM DESIGN   -->
+    <color name="base_white">#FFFFFF</color>
+    <color name="base_black">#000000</color>
+    <color name="base_light_black">#2F2F2F</color>
+    <color name="base_dark_grey">#4C4C4C</color>
+    <color name="base_grey">#B2B2B2</color>
+    <color name="base_light_grey">#E8E8E8</color>
+    <color name="base_ultra_light_grey">#F0F0F0</color>
+    <color name="base_red">#DB3131</color>
+    <color name="base_ultra_red">#EA2727</color>
+    <color name="base_pink">#FFD4D4</color>
+    <color name="base_brown">#E78445</color>
+    <color name="base_yellow">#EBB40E</color>
+    <color name="base_beige">#FFE7A1</color>
+    <color name="base_green">#39C44D</color>
+    <color name="base_ultra_blue">#417BB0</color>
+    <color name="base_blue">#67A0CD</color>
+    <color name="base_light_blue">#B2D5F1</color>
+    <color name="base_ultra_light_blue">#D0EAFF</color>
+
+</resources>

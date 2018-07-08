@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_more_info_item"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <View
+        android:layout_width="5dp"
+        android:layout_height="5dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/ic_red_circle" />
+
+    <TextView
+        android:id="@+id/tvMoreInfoText_LMITI"
+        style="@style/AppTheme.MoreInfoTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="11dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        tools:text="Ut id auctor ligula. Pellentesque et isuit Ut id auctor ligula. Pellentesque et isuit Ut id auctor ligula. Pellentesque et isuit Ut id auctor ligula. Pellentesque et isuit" />
+</LinearLayout>

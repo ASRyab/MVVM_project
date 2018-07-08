@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="asryab.com.mvvmproject.screens.feed.graphics.GraphicType" />
+
+        <variable
+            name="viewModel"
+            type="asryab.com.mvvmproject.viewmodels.feed.graphics.GraphicLayoutVM" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/app_container_padding"
+        tools:background="@color/base_light_grey">
+
+        <asryab.com.mvvmproject.screens.feed.graphics.GraphicForAnswerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:colorTextCaptions="@color/app_color_text_black_transparently"
+            app:colorTextPercentage="@color/text_grey_sketch"
+            app:dividersColor="@color/app_color_grey"
+            app:fillMaxColor="@color/answer_full_color"
+            app:pollStatisticsGraphic="@{viewModel.pollStatistics}"
+            app:sizeTextCaptions="@dimen/app_text_size_normal"
+            app:sizeTextPercentage="@dimen/app_text_size_small"
+            app:typeGraphic="@{viewModel.typeOfTheGraphic}" />
+
+    </FrameLayout>
+</layout>

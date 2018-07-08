@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="asryab.com.mvvmproject.viewmodels.feed.polls.holders.PollAnswersListVM" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/AppTheme.TextView.Answers_List_Red"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_bg_answer_view"
+            android:text="@{viewModel.answerFirst.text}"
+            app:bindClick="@{viewModel}"
+            app:bindModel="@{viewModel.answerFirst}"
+            tools:text="Hindu" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/app_color_grey" />
+
+        <TextView
+            style="@style/AppTheme.TextView.Answers_List_Red"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_bg_answer_view"
+            android:text="@{viewModel.answerSecond.text}"
+            app:bindClick="@{viewModel}"
+            app:bindModel="@{viewModel.answerSecond}"
+            tools:text="Muslim" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/app_color_grey" />
+
+        <TextView
+            style="@style/AppTheme.TextView.Answers_List_Red"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_bg_answer_view"
+            android:text="@{viewModel.answerThird.text}"
+            app:bindClick="@{viewModel}"
+            app:bindModel="@{viewModel.answerThird}"
+            tools:text="Dalit" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/app_color_grey" />
+
+        <TextView
+            style="@style/AppTheme.TextView.Answers_List_Red"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_bg_answer_view"
+            android:text="@{viewModel.answerFour.text}"
+            app:bindClick="@{viewModel}"
+            app:bindModel="@{viewModel.answerFour}"
+            tools:text="Any Minority" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/app_color_grey" />
+
+        <TextView
+            style="@style/AppTheme.TextView.Answers_List_Red"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_bg_answer_view"
+            android:text="@{viewModel.answerFive.text}"
+            app:bindClick="@{viewModel}"
+            app:bindModel="@{viewModel.answerFive}"
+            tools:text="Don't Know / Can't Say" />
+
+    </LinearLayout>
+</layout>

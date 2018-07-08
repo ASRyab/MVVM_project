@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <data>
+        <variable
+            name="socialVM"
+            type="asryab.com.mvvmproject.viewmodels.authorization.SocialVM" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="7dp"
+        android:layout_height="wrap_content">
+        <ImageButton
+            style="@style/AppTheme.Button.Social"
+            android:layout_weight="1"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/ic_fb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <ImageButton
+            style="@style/AppTheme.Button.Social"
+            android:layout_weight="1"
+            android:src="@drawable/ic_tw"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <ImageButton
+            style="@style/AppTheme.Button.Social"
+            android:layout_weight="1"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/ic_gmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!--<gradient-->
+        <!--android:endColor="@color/app_background_default_color"-->
+        <!--android:gradientRadius="@dimen/app_feed_tabs_min_radius_transparent_gradient"-->
+        <!--android:startColor="@android:color/transparent"-->
+        <!--android:centerX="50%"-->
+        <!--android:centerY="50%"-->
+        <!--android:type="radial" />-->
+
+    <gradient
+        android:startColor="@color/app_background_default_color"
+        android:centerColor="@android:color/transparent"
+        android:endColor="@color/app_background_default_color"
+        android:type="linear" />
+
+</shape>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        >
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="asryab.com.mvvmproject.viewmodels.feed.petitions.updates.UpdateItemVM" />
+
+    </data>
+
+    <TextView
+        android:padding="@dimen/app_petition_indent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/app_text_size_normal"
+        android:ellipsize="end"
+        android:textColor="@color/base_light_black"
+        android:text="@{viewModel.completeText}"/>
+</layout>

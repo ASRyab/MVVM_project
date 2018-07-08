@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="asryab.com.mvvmproject.viewmodels.feed.polls.holders.PollVotedVM" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:background="@android:color/white">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp">
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:orientation="horizontal"
+                app:onTabSelected="@{viewModel.tabsStatisticListener}"
+                app:selectTab="@{viewModel.tabActionSender}">
+
+                <RadioButton
+                    style="@style/AppTheme.StatisticTab"
+                    android:drawableTop="@drawable/selector_rate" />
+
+                <RadioButton
+                    style="@style/AppTheme.StatisticTab"
+                    android:drawableTop="@drawable/selector_world"
+                    android:visibility="@{viewModel.countryPoll ? View.VISIBLE : View.GONE}" />
+
+                <RadioButton
+                    style="@style/AppTheme.StatisticTab"
+                    android:drawableTop="@drawable/selector_diagram" />
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="10dp"
+                android:drawableLeft="@drawable/ic_check_green"
+                android:drawablePadding="6dp"
+                android:gravity="center_vertical"
+                android:paddingBottom="@dimen/app_container_poll_default_padding"
+                android:text="@string/voted"
+                android:textAllCaps="true"
+                android:visibility="@{viewModel.isVoted ? View.VISIBLE : View.INVISIBLE}"
+                android:textColor="@color/app_color_black_transparently"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/flContainerStatistics_HAV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/app_color_grey" />
+
+        <LinearLayout
+            android:id="@+id/llContainerAnswers_HAV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.thoughtsVisible ? View.VISIBLE : View.GONE}">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/gradient_thoughts_gray" />
+
+            <TextView
+                android:id="@+id/tvThoughtsLabel_HAV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:singleLine="true"
+                android:text="@string/thoughts"
+                android:textAllCaps="true"
+                android:textColor="@color/app_color_text_black_transparently"
+                android:textSize="@dimen/app_text_size_small"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/llRecyclerThoughts_HAV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvThoughtsLabel_HAV"
+                android:layout_marginLeft="@dimen/app_container_poll_default_padding"
+                android:layout_marginRight="@dimen/app_container_poll_default_padding"
+                android:orientation="vertical"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                app:recyclerAdapter="@{viewModel.thoughtsAdapter}"
+                app:recyclerDecoration="@{viewModel.thoughtsDividerDecoration}"
+                app:recyclerManager="@{viewModel.thoughtsLayoutManager}" />
+
+            <TextView
+                style="@style/AppTheme.Button.GreyBorder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/llRecyclerThoughts_HAV"
+                android:layout_marginLeft="@dimen/app_container_poll_default_padding"
+                android:layout_marginRight="@dimen/app_container_poll_default_padding"
+                android:layout_marginTop="@dimen/app_container_poll_default_padding"
+                android:text="@string/view_all_thoughts"
+                android:onClick="@{viewModel.viewAllThoughts}"
+                android:visibility="@{viewModel.viewAllThoughtsVisible ? View.VISIBLE : View.GONE}" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="petitionVM"
+            type="asryab.com.mvvmproject.viewmodels.feed.petitions.PetitionVM" />
+        <variable
+            name="viewModel"
+            type="asryab.com.mvvmproject.viewmodels.feed.petitions.ReadMorePetitionVM" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/base_white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/row_toolbar"
+            app:viewModel="@{viewModel}" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include layout="@layout/holder_petition"
+                     app:viewModel="@{petitionVM}"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</layout>

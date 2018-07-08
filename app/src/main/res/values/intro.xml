@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_intro_1_title"></string>
+    <string name="app_intro_1_subtitle"></string>
+
+    <string name="app_intro_2_title"></string>
+    <string name="app_intro_2_subtitle"></string>
+
+    <string name="app_intro_3_title"></string>
+    <string name="app_intro_3_subtitle"></string>
+
+</resources>

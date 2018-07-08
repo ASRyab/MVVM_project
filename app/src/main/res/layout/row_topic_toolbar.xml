@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="asryab.com.mvvmproject.viewmodels.TopicToolbarVM"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/base_light_grey">
+
+        <TextView
+            android:id="@+id/tvCancel_TT"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="@{viewModel::cancelPressed}"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:text="@{viewModel.mLeftText}"
+            android:textColor="@color/base_dark_grey"
+            android:textSize="@dimen/app_text_size_normal"
+            tools:text="Cancel"/>
+
+        <TextView
+            android:id="@+id/tvSubmit_TT"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="@{viewModel::submitPressed}"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:text="@{viewModel.mRightText}"
+            android:textColor="@color/base_dark_grey"
+            android:textSize="@dimen/app_text_size_normal"
+            tools:text="Submit"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@id/tvSubmit_TT"
+            android:layout_toRightOf="@id/tvCancel_TT"
+            android:gravity="center"
+            android:text="@{viewModel.mTitle}"
+            android:textColor="@color/base_black"
+            android:textStyle="bold"
+            android:textSize="@dimen/app_text_size_middle"
+            tools:text="Post Topic"/>
+
+    </RelativeLayout>
+</layout>

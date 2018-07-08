@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <import type="asryab.com.mvvmproject.viewmodels.authorization.signup.SignUpVM.FieldType"/>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewModel"
+            type="asryab.com.mvvmproject.viewmodels.authorization.signup.SignUpVM"/>
+
+        <variable
+            name="socialVM"
+            type="asryab.com.mvvmproject.viewmodels.authorization.SocialVM"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/row_toolbar"
+            bind:viewModel="@{viewModel}"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar"
+            android:background="@color/base_white"
+            android:fillViewport="true"
+            >
+
+            <LinearLayout
+                android:paddingTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:descendantFocusability="beforeDescendants"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressBar"/>
+
+                <include
+                    layout="@layout/view_social_auth"
+                    bind:socialVM="@{socialVM}"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/vertical_margin_normal"
+                    android:layout_marginTop="@dimen/vertical_margin_small"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/base_light_grey"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:text="@string/or"
+                        android:textColor="@color/base_grey"
+                        android:textSize="@dimen/app_text_size_normal"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/base_light_grey"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/vertical_margin_normal"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        style="@style/AppTheme.EditTextGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/name_SUA"
+                            style="@style/AppTheme.EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/name"
+                            android:imeOptions="actionNext"
+                            android:inputType="text|textCapWords"
+                            android:maxLength="32"
+                            android:maxLines="1"
+                            app:binding="@{viewModel.mName}"
+                            app:backgroundListener="@{viewModel.mBackgroundListener}"
+                            app:type="@{FieldType.NAME}"/>
+
+                        <View android:layout_width="match_parent" android:layout_height="1dp"
+                              android:background="@color/base_grey"/>
+
+                        <EditText
+                            android:id="@+id/email_SUA"
+                            style="@style/AppTheme.EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/email_required"
+                            android:imeOptions="actionNext"
+                            android:inputType="textEmailAddress"
+                            android:maxLines="1"
+                            android:maxLength="32"
+                            app:binding="@{viewModel.mEmail}"
+                            app:backgroundListener="@{viewModel.mBackgroundListener}"
+                            app:type="@{FieldType.EMAIL}"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/AppTheme.EditTextGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/vertical_margin_normal"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/password_SUA"
+                                style="@style/AppTheme.EditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/create_password"
+                                android:imeOptions="actionNext"
+                                android:inputType="textPassword"
+                                android:maxLength="32"
+                                android:maxLines="1"
+                                android:paddingRight="35dp"
+                                app:binding="@{viewModel.mPassword}"
+                                app:backgroundListener="@{viewModel.mBackgroundListener}"
+                                app:type="@{FieldType.PASSWORD}"/>
+
+                            <ImageButton
+                                android:id="@+id/showPassword_SUA"
+                                android:layout_width="45dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:background="@android:color/transparent"
+                                android:src="@drawable/ic_eye"
+                                android:onClick="@{viewModel.onClickEye}"/>
+                        </RelativeLayout>
+
+                        <View android:layout_width="match_parent" android:layout_height="1dp"
+                              android:background="@color/base_grey"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/confirmPassword_SUA"
+                                style="@style/AppTheme.EditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/confirm_password"
+                                android:imeOptions="actionNext"
+                                android:inputType="textPassword"
+                                android:maxLength="32"
+                                android:maxLines="1"
+                                app:binding="@{viewModel.mConfirmPassword}"
+                                app:backgroundListener="@{viewModel.mBackgroundListener}"
+                                app:type="@{FieldType.CONFIRM_PASSWORD}"/>
+
+                            <ImageButton
+                                android:id="@+id/showConfirm_SUA"
+                                android:layout_width="45dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:background="@android:color/transparent"
+                                android:src="@drawable/ic_eye"
+                                android:onClick="@{viewModel.onClickEye}"/>
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/AppTheme.EditTextGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/vertical_margin_normal"
+                        android:orientation="vertical">
+
+                        <FrameLayout android:layout_width="match_parent"
+                                     android:layout_height="wrap_content">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/country_SUA"
+                                style="@style/AppTheme.EditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/country"
+                                android:imeOptions="actionNext"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:completionThreshold="1"
+                                app:textWatcher="@{viewModel.mCountryWatcher}"
+                                app:autoCompleteAdapter="@{viewModel.mCountryAdapter}"
+                                app:binding="@{viewModel.mCountry}"
+                                app:autocompleteListener="@{viewModel.mAutocompleteCountryListener}"
+                                app:backgroundListener="@{viewModel.mBackgroundListener}"
+                                app:type="@{FieldType.COUNTRY}"/>
+
+                            <ProgressBar
+                                android:id="@+id/progressCountry"
+                                style="?android:attr/progressBarStyleSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical|right"
+                                android:layout_marginRight="16dp"
+                                android:visibility="@{viewModel.isCountryProgressVisible ? View.VISIBLE : View.GONE}"/>
+                        </FrameLayout>
+
+                        <View android:layout_width="match_parent" android:layout_height="1dp"
+                              android:background="@color/base_grey"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/code_SUA"
+                                style="@style/AppTheme.EditText"
+                                android:layout_width="110dp"
+                                android:layout_height="wrap_content"
+                                android:completionThreshold="3"
+                                android:hint="@string/code"
+                                android:maxLength="6"
+                                android:maxLines="1"
+                                app:binding="@{viewModel.mPhoneCode}"
+                                app:backgroundListener="@{viewModel.mBackgroundListener}"
+                                app:type="@{FieldType.PHONE_COD}"/>
+
+                            <EditText
+                                android:id="@+id/phone_SUA"
+                                style="@style/AppTheme.EditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@id/code_SUA"
+                                android:hint="@string/mobile_number"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="10"
+                                android:maxLines="1"
+                                app:binding="@{viewModel.mPhone}"
+                                app:backgroundListener="@{viewModel.mBackgroundListener}"
+                                app:type="@{FieldType.PHONE}"/>
+
+                            <View android:id="@+id/divCountry" android:layout_width="match_parent"
+                                  android:layout_height="1dp" android:layout_below="@id/phone_SUA"
+                                  android:background="@color/base_grey"/>
+
+                            <asryab.com.mvvmproject.screens.authorization.signup.AutoCompleteText
+                                android:id="@+id/pincode_SUA"
+                                style="@style/AppTheme.EditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_below="@id/divCountry"
+                                android:completionThreshold="5"
+                                android:hint="@string/pin_code"
+                                android:inputType="number"
+                                android:maxLength="6"
+                                android:maxLines="1"
+                                app:autocompleteListener="@{viewModel.mAutocompletePinListener}"
+                                app:backgroundListener="@{viewModel.mBackgroundListener}"
+                                app:binding="@{viewModel.mPinCode}"
+                                app:textWatcher="@{viewModel.mPinWatcher}"
+                                app:type="@{FieldType.PINCODE}"/>
+
+                            <FrameLayout android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignLeft="@id/phone_SUA"
+                                android:layout_below="@id/divCountry">
+                                <TextView
+                                    style="@style/AppTheme.EditText"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:maxLines="1"
+                                    app:backgroundListener="@{viewModel.mBackgroundListener}"
+                                    app:binding="@{viewModel.mArea}"
+                                    app:type="@{FieldType.AREA}"/>
+
+                                <ProgressBar
+                                    android:id="@+id/progressPincode"
+                                    style="?android:attr/progressBarStyleSmall"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical|right"
+                                    android:layout_marginRight="16dp"
+                                    android:visibility="@{viewModel.isPincodeProgressVisible ? View.VISIBLE : View.GONE}"/>
+                            </FrameLayout>
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/AppTheme.EditTextGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/vertical_margin_normal"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/yearOfBirth_SUA"
+                            style="@style/AppTheme.EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/year_of_birth"
+                            android:imeOptions="actionDone"
+                            android:inputType="number"
+                            android:maxLength="4"
+                            android:maxLines="1"
+                            app:binding="@{viewModel.mYear}"
+                            app:backgroundListener="@{viewModel.mBackgroundListener}"
+                            app:type="@{FieldType.YEAR}"/>
+
+                        <View android:layout_width="match_parent" android:layout_height="1dp"
+                              android:background="@color/base_grey"/>
+
+                        <TextView
+                            android:id="@+id/gender_SUA"
+                            style="@style/AppTheme.EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/gender"
+                            android:maxLines="1"
+                            android:maxLength="10"
+                            app:binding="@{viewModel.mGender}"
+                            android:onClick="@{viewModel::showGeenderDialog}"
+                            app:backgroundListener="@{viewModel.mBackgroundListener}"
+                            app:type="@{FieldType.GENDER}"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/btnSignUp_SUA"
+                        style="@style/AppTheme.Button.Red"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:onClick="@{viewModel::clickButton}"
+                        android:text="@string/sign_up"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/base_light_grey"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/btnLogIn_SUA"
+                        style="@style/AppTheme.Button.Neutral"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="@dimen/vertical_margin_normal"
+                        android:gravity="center"
+                        android:onClick="@{viewModel::clickButton}"
+                        android:text="@string/log_in"/>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </RelativeLayout>
+</layout>

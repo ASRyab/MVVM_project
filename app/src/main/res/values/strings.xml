@@ -1,0 +1,175 @@
+<resources>
+    <string name="app_name">MVVM</string>
+    <string name="log_in">Log In</string>
+    <string name="or">or</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="password">Password</string>
+
+    <string name="empty_string"></string>
+
+    <!--   Language Activity   -->
+    <string name="select_your_language">Select Your Language</string>
+    <string name="what_matters_locally">What Matters Locally</string>
+    <string name="get_started">Get Started</string>
+
+    <!--    Polls    -->
+    <string name="live">Live</string>
+    <string name="closed">Closed</string>
+    <string name="closed_poll">Closed Poll</string>
+    <string name="polls">Polls</string>
+    <string name="petitions">Petitions</string>
+    <string name="more">More</string>
+    <string name="more_pagination">\u25BE More \u25BE</string>
+    <string name="more_info">More Info</string>
+
+    <string name="votes">Votes</string>
+    <string name="days">Days</string>
+    <string name="hrs">Hrs</string>
+    <string name="day">Day</string>
+    <string name="hr">Hr</string>
+    <string name="min">Min</string>
+    <string name="left">Left</string>
+
+
+    <string name="email">Email</string>
+
+    <!--   Forgot Password   -->
+    <string name="forgot_password">Forgot Password</string>
+    <string name="enter_email_description">Enter your email and we`ll send you an email to
+        reset your password
+    </string>
+    <string name="send_email">Send Email</string>
+    <string name="check_email">Check your email</string>
+    <string name="check_email_description_1">We`ve sent an email to</string>
+    <string name="check_email_description_2">. Click the link in the email to reset your password.</string>
+    <string name="check_email_description_3">If you don`t see the email, check your junk, spam,
+    social, or other folders.</string>
+    <string name="dont_receive">I didn`t receive the email</string>
+    <string name="go_to_login">Go to Login Screen</string>
+
+    <!--   Error Messages   -->
+    <string name="email_invalid">Email is not valid</string>
+    <string name="password_invalid">Password is not correct</string>
+    <string name="internet_error">No Internet connection</string>
+    <string name="all_fields_required_error">Please fill in all the required fields</string>
+    <string name="registration_error">Registration error!</string>
+    <string name="country_error">Country is not correct!</string>
+
+    <!--   Signup Screen   -->
+    <string name="email_required">Email*</string>
+    <string name="name">Name*</string>
+    <string name="create_password">Create Password*</string>
+    <string name="confirm_password">Confirm Password*</string>
+    <string name="country">Country*</string>
+    <string name="mobile_number">Mobile Number*</string>
+    <string name="pin_code">Pincode*</string>
+    <string name="year_of_birth">Year of Birth*</string>
+    <string name="gender">Gender</string>
+    <string name="code">Code</string>
+    <string name="share">Share</string>
+    <string name="no">No</string>
+    <string name="not_sure">Not Sure</string>
+    <string name="yes">Yes</string>
+
+    <!--    Poll categories     -->
+    <string name="poll_day">Poll of the Day</string>
+    <string name="poll_week">Poll of the Week</string>
+    <string name="poll_month">Poll of the Month</string>
+    <string name="poll_sport">Sports Poll</string>
+    <string name="poll_bollywood">Bollywood Poll</string>
+    <string name="poll_fun">Fun Poll</string>
+    <string name="poll_market_survey">Market survey</string>
+    <string name="poll_other">Other Poll</string>
+    <string name="poll_promoted">Promoted Poll</string>
+    <string name="poll_sponsored">Sponsored Poll</string>
+
+    <string name="vote_now">Vote Now</string>
+    <string name="see_results">See Results</string>
+    <string name="share_your_thoughts">Share your thoughts</string>
+    <string name="why_did_you_vote_for_answer_x">Why did you vote for \"%s\"?</string>
+    <string name="type_your_thoughts_here">Type your thoughts here…</string>
+    <string name="i_agree_to_post_my_thoughts_for_public_view">I agree to post my thoughts for public view</string>
+    <string name="post">Post</string>
+    <string name="skip">Skip</string>
+
+    <!--   Post Topic   -->
+    <string name="edit_topic_hint">What`s Interesting right now?</string>
+    <string name="post_topic">Post Topic</string>
+    <string name="cancel">Cancel</string>
+    <string name="accept">Accept</string>
+    <string name="submit">Submit</string>
+    <string name="topic">Topic</string>
+    <string name="earn_money">Earn Money</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="nationwide">Nationwide</string>
+    <string name="add_media">Add Media</string>
+    <string name="answers">Answers</string>
+    <string name="five_answers">5 answers</string>
+    <string name="three_answers">Yes/No/Unsure</string>
+    <string name="answer_1">Answer 1:</string>
+    <string name="answer_2">Answer 2:</string>
+    <string name="answer_3">Answer 3:</string>
+    <string name="answer_4">Answer 4:</string>
+    <string name="answer_5">Answer 5:</string>
+
+    <!--    Toast errors    -->
+    <string name="error_empty_thoughts">Field for inputting thoughts can\'t be empty!</string>
+    <string name="compiling_voting_results">Compiling voting results…</string>
+    <string name="like_is_posted">Like is posted</string>
+
+    <string name="voted">Voted</string>
+    <string name="percent_format">%s%%</string>
+    <string name="country_without_star">Country</string>
+    <string name="sign_petition">Sign Petition</string>
+    <string name="keep_me_updated_on_this_campaign">Keep me updated on this campaign</string>
+    <string name="read_more">Read more</string>
+    <string name="thoughts">Thoughts</string>
+    <string name="view_all_thoughts">View All Thoughts</string>
+    <string name="all_thoughts">All Thoughts</string>
+    <string name="report">Report</string>
+    <string name="closed_petition">closed petition</string>
+    <string name="updates">Updates</string>
+    <string name="view_all_Updates">View All Updates</string>
+    <string name="signed">Signed</string>
+    <string name="supporters">supporters</string>
+    <string name="age">Age</string>
+    <string name="gender_without_star">Gender</string>
+    <string name="answer_details">Answer Details</string>
+
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="other">Other</string>
+    <string name="unknown_error">Unknown error</string>
+    <string name="petition_details">Petition Details</string>
+
+
+    <string name="pull_down_to_refresh">Pull down to refresh</string>
+    <string name="pull_down_to_refresh_subtitle">Download newest elements and update list</string>
+
+    <string name="pull_up_to_loading_more">Pull up to loading more</string>
+    <string name="pull_up_to_loading_more_subtitle">Download next elements and append to list</string>
+
+    <string name="loading">Loading…</string>
+    <string name="all_updates">All Updates</string>
+    <string name="search">Search</string>
+    <string name="trending_now">Trending now</string>
+    <string name="past_polls">Past Polls</string>
+    <string name="past_petitions">Past Petitions</string>
+    <string name="naah">Naah</string>
+    <string name="like">Like</string>
+    <string name="my_profile">My Profile</string>
+    <string name="topics">Topics</string>
+    <string name="points">Points</string>
+    <string name="following">Following</string>
+    <string name="follow">Follow</string>
+    <string name="rank">rank</string>
+    <string name="top_answer">Top Answer:</string>
+    <string name="poll_details">Poll Details</string>
+
+    <string name="error_internet_connection">Cannot load data.\nPlease check your network connection.</string>
+    <string name="error_empty_data">List is empty.</string>
+    <string name="retry">Retry</string>
+
+
+</resources>

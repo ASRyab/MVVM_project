@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="asryab.com.mvvmproject.viewmodels.feed.petitions.updates.AllUpdatesPetitionVM" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/base_white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/row_toolbar"
+            app:viewModel="@{viewModel}" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <asryab.com.mvvmproject.abstracts.recycler.pagination.RefreshLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:onRefreshListener="@{viewModel}"
+                app:onStopRefresh="@{viewModel.isShowDropDownRefresh}">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/llRecyclerUpdates_HP"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:overScrollMode="never"
+                    android:paddingLeft="11dp"
+                    android:paddingRight="11dp"
+                    android:scrollbars="none"
+                    app:recyclerScrollListener="@{viewModel.lazyLoadingListener}"
+                    app:recyclerAdapter="@{viewModel.updatesAdapter}"
+                    app:recyclerDecoration="@{viewModel.updatesDividerDecoration}"
+                    app:recyclerManager="@{viewModel.updatesLayoutManager}" />
+
+            </asryab.com.mvvmproject.abstracts.recycler.pagination.RefreshLayout>
+
+            <asryab.com.mvvmproject.screens.ProgressView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:visibility="@{viewModel.isVisibleCenterProgress ? View.VISIBLE : View.GONE}"
+                app:progressBgCircleStrokeWidth="2dp"
+                app:progressBgCircleType="stroke"
+                app:progressBgColor="@color/app_color_text_black_transparently"
+                app:progressCircleColor="@color/base_red" />
+
+            <include
+                layout="@layout/layout_error_load"
+                app:errorModel="@{viewModel}" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="app_text_size_small">12sp</dimen>
+    <dimen name="app_text_size_default">13sp</dimen>
+    <dimen name="app_text_size_normal">15sp</dimen>
+    <dimen name="app_text_size_pre_middle">17sp</dimen>
+    <dimen name="app_text_size_middle">18sp</dimen>
+    <dimen name="app_text_size_big">36sp</dimen>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+
+    <dimen name="app_button_padding_default">11dp</dimen>
+    <dimen name="app_textview_padding_default">5dp</dimen>
+    <dimen name="app_textview_padding_normal">8dp</dimen>
+
+    <dimen name="app_intro_bottom_panel_height">190dp</dimen>
+    <dimen name="app_intro_title_max_offset_from_default_state">150dp</dimen>
+
+    <dimen name="app_container_padding">18dp</dimen>
+    <dimen name="app_container_padding_half">9dp</dimen>
+    <dimen name="app_container_padding_quart">5dp</dimen>
+
+    <dimen name="app_container_poll_default_padding">4dp</dimen>
+
+    <dimen name="app_feed_tabs_min_radius_transparent_gradient">140dp</dimen>
+    <dimen name="app_home_tabs_height">52dp</dimen>
+
+    <dimen name="app_home_tabs_line_selected_height">4dp</dimen>
+    <dimen name="app_home_tabs_line_selected_height_inverse">-5dp</dimen>
+
+    <dimen name="app_polls_answers_sport_icon_size">54dp</dimen>
+    <dimen name="app_polls_answers_three_icon_size">28dp</dimen>
+
+    <dimen name="app_polls_voted_tab_width">48dp</dimen>
+    <dimen name="app_polls_voted_tab_height">43dp</dimen>
+
+    <dimen name="app_thoughts_icon_size_w">46dp</dimen>
+    <dimen name="app_thoughts_icon_size_h">35dp</dimen>
+
+    <dimen name="app_pagination_height_layout">80dp</dimen>
+    <dimen name="app_pagination_offset_height_layout">14dp</dimen>
+    <dimen name="app_pagination_offset_height_layout_half">2dp</dimen>
+
+    <dimen name="app_past_polls_item_height">105dp</dimen>
+    <dimen name="app_past_polls_image_width">100dp</dimen>
+
+    <!-- for textview -->
+    <dimen name="vertical_margin_small">10dp</dimen>
+    <dimen name="vertical_margin_normal">20dp</dimen>
+    <dimen name="app_petition_indent">12dp</dimen>
+</resources>

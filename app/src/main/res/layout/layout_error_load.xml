@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="errorModel"
+            type="asryab.com.mvvmproject.viewmodels.ErrorLoadingVM" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="@{errorModel.isShowErrorContainer ? View.VISIBLE : View.GONE}">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{errorModel.errorMessage}"
+            android:textColor="@color/text_grey_sketch2"
+            android:textSize="@dimen/app_text_size_normal"
+            tools:text="@string/error_internet_connection" />
+
+        <TextView
+            style="@style/AppTheme.Button.Grey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minWidth="100dp"
+            android:onClick="@{errorModel.retry}"
+            android:padding="@dimen/app_container_padding_half"
+            android:text="@string/retry"
+            android:visibility="@{errorModel.isShowRetryButton ? View.VISIBLE : View.GONE}" />
+    </LinearLayout>
+</layout>

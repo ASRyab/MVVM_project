@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="asryab.com.mvvmproject.viewmodels.feed.petitions.PetitionsListFragmentVM" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <asryab.com.mvvmproject.abstracts.recycler.pagination.RefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:onRefreshListener="@{viewModel}"
+            app:onStopRefresh="@{viewModel.isShowDropDownRefresh}">
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never"
+                android:paddingLeft="@dimen/app_container_padding_half"
+                android:paddingRight="@dimen/app_container_padding_half"
+                android:scrollbars="none"
+                app:recyclerScrollListener="@{viewModel.lazyLoadingListener}"
+                app:recyclerAdapter="@{viewModel.petitionsAdapter}"
+                app:recyclerDecoration="@{viewModel.verticalSpaceItemDecoration}"
+                app:recyclerManager="@{viewModel.layoutManager}" />
+        </asryab.com.mvvmproject.abstracts.recycler.pagination.RefreshLayout>
+
+        <asryab.com.mvvmproject.screens.ProgressView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isVisibleCenterProgress ? View.VISIBLE : View.GONE}"
+            app:progressBgCircleStrokeWidth="2dp"
+            app:progressBgCircleType="stroke"
+            app:progressBgColor="@color/app_color_text_white_transparently"
+            app:progressCircleColor="@color/base_red" />
+
+        <include
+            layout="@layout/layout_error_load"
+            app:errorModel="@{viewModel}" />
+
+    </FrameLayout>
+
+</layout>

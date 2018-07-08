@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewModel"
+            type="asryab.com.mvvmproject.viewmodels.authorization.LoginActivityVM"/>
+
+        <variable
+            name="socialVM"
+            type="asryab.com.mvvmproject.viewmodels.authorization.SocialVM"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/row_toolbar"
+            bind:viewModel="@{viewModel}"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/base_white"
+            android:fillViewport="true"
+            android:paddingTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include
+                    layout="@layout/view_social_auth"
+                    bind:socialVM="@{socialVM}"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/base_light_grey"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:text="@string/or"
+                        android:textColor="@color/base_grey"
+                        android:textSize="@dimen/app_text_size_normal"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/base_light_grey"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:descendantFocusability="beforeDescendants"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/AppTheme.EditTextGroup"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/email_LA"
+                            style="@style/AppTheme.EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:afterTextChanged="@{viewModel::setEmail}"
+                            android:ems="10"
+                            android:hint="@string/email"
+                            android:imeOptions="actionNext"
+                            android:inputType="textEmailAddress"/>
+
+                        <View android:layout_width="match_parent" android:layout_height="1dp"
+                              android:background="@color/base_grey"/>
+
+                        <EditText
+                            android:id="@+id/password_LA"
+                            style="@style/AppTheme.EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:afterTextChanged="@{viewModel::setPassword}"
+                            android:ems="10"
+                            android:hint="@string/password"
+                            android:imeOptions="actionDone"
+                            android:inputType="textPassword"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/AppTheme.Button.Red"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/log_in"
+                        android:onClick="@{viewModel::clickLogIn}"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginTop="15dp"
+                        android:gravity="center"
+                        android:text="@string/forgot_password"
+                        android:textColor="@color/base_grey"
+                        android:textSize="@dimen/app_text_size_middle"
+                        android:onClick="@{viewModel::clickForgot}"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/base_light_grey"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/AppTheme.Button.Neutral"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center"
+                        android:text="@string/sign_up"
+                        android:onClick="@{viewModel::clickSignUp}"/>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

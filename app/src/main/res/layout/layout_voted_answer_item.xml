@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="java.lang.String" />
+
+        <import type="android.support.v4.graphics.ColorUtils" />
+
+        <variable
+            name="isChecked"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="title"
+            type="java.lang.String" />
+
+        <variable
+            name="percent"
+            type="java.lang.Integer" />
+
+        <variable
+            name="blendPercent"
+            type="java.lang.Float" />
+
+        <variable
+            name="onAnswerClick"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{onAnswerClick}"
+        android:paddingBottom="1dp"
+        android:background="@drawable/bg_more_info_item">
+
+        <asryab.com.mvvmproject.screens.feed.CustomProgressVotedAnswer
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@+id/tvTitleAnswer_LVAI"
+            android:layout_alignTop="@+id/tvTitleAnswer_LVAI"
+            app:colorProgressPercents="@{ColorUtils.blendARGB(@android:color/white, @color/answer_full_color, blendPercent)}"
+            app:valueProgressPercents="@{percent}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="6dp"
+            android:padding="5dp"
+            android:text="@{String.format(@string/percent_format, percent)}"
+            android:textColor="@{percent > 8 ? @color/app_color_text_white_transparently : @color/app_color_grey_selected}"
+            tools:text="41%" />
+
+        <!-- TODO FOR DISPLAYING VOTED ITEM: android:background="@{isChecked ? @drawable/bg_selected_voted_answer : @drawable/empty_drawable}"-->
+        <TextView
+            android:id="@+id/tvTitleAnswer_LVAI"
+            style="@style/AppTheme.TextView.Answers_Voted"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="33dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:paddingBottom="10dp"
+            android:paddingLeft="45dp"
+            android:paddingRight="12dp"
+            android:paddingTop="10dp"
+            android:text="@{title}"
+            tools:text="Muslim" />
+
+    </RelativeLayout>
+
+</layout>

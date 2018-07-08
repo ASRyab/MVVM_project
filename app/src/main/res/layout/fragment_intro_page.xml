@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="asryab.com.mvvmproject.viewmodels.intro.IntroFragmentVM" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:glideImage="@{viewModel.introPageModel.url}" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignTop="@+id/llContainerTitles_FIP"
+            android:background="@drawable/bg_black_gradient" />
+
+        <LinearLayout
+            android:id="@+id/llContainerTitles_FIP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/app_intro_bottom_panel_height"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/AppTheme.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="@{viewModel.alphaTitles}"
+                android:text="@{viewModel.introPageModel.title}"
+                android:textAllCaps="true"
+                android:textSize="@dimen/app_text_size_big"
+                android:textStyle="bold"
+                android:translationX="@{viewModel.offsetXTitle}"
+                tools:text="Vote" />
+
+            <TextView
+                style="@style/AppTheme.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="@{viewModel.alphaTitles}"
+                android:gravity="center_horizontal"
+                android:text="@{viewModel.introPageModel.subTitle}"
+                android:textSize="@dimen/app_text_size_middle"
+                android:translationX="@{viewModel.offsetXSubTitle}"
+                tools:text="Vote on polls about critical\nissues for a better India" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>
